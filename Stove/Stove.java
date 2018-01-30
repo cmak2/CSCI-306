@@ -8,6 +8,14 @@ import java.util.ArrayList;
  * 
  * Purpose: Simulates a stove
  */
+
+/*
+ * Names:
+ * Calvin Mak
+ * Jacob McBee
+ * Date:
+ * 1/30/2018
+ */
 public class Stove {
 	// Our stove will have 4 burners
 	public final static int NUM_BURNERS = 4;
