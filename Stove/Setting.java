@@ -1,10 +1,7 @@
 package src;
-import java.lang.*;
 
 public enum Setting {
 	OFF ("---"), LOW ("--+"), MEDIUM ("-++"), HIGH ("+++");
-	
-	private String heatSetting;
 	
 	Setting(String initSetting){
 		heatSetting = initSetting;
@@ -18,5 +15,9 @@ public enum Setting {
 		this.heatSetting = heatSetting;
 	}
 	
+	public String toString(){
+		return heatSetting;
+	}
 	
+	private String heatSetting;
 }
