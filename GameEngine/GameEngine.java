@@ -14,6 +14,17 @@ import levelPieces.LevelEngine;
  *
  */
 
+
+/**
+ * 
+ * @author Calvin Mak
+ * @author Jacob Mcbee
+ *
+ * Programming pair 23
+ * CSCI 306 SEC A
+ * 
+ */
+
 public class GameEngine {
 	/**
 	 * Determines the size of the game board. 
