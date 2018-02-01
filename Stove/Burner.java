@@ -1,3 +1,4 @@
+package src;
 
 /*
  * Names:
@@ -43,11 +44,55 @@ public class Burner {
 			break;
 		case HIGH:
 			this.mySetting = Setting.MEDIUM;
+			break;
 		}
 	}
 	
 	public void updateTemperature() {
-		
+		timer++;
+		if (timer % TIME_DURATION == 0) {
+			switch(mySetting) {
+			case OFF:
+				if(this.myTemperature == Temperature.WARM) {
+					this.myTemperature = Temperature.COLD;
+				} else if(this.myTemperature == Temperature.HOT) {
+					this.myTemperature = Temperature.WARM;
+				} else if(this.myTemperature == Temperature.BLAZING) {
+					this.myTemperature = Temperature.HOT;
+				}
+				break;
+			case LOW:
+				if(this.myTemperature == Temperature.COLD) {
+					this.myTemperature = Temperature.WARM;
+				} else if(this.myTemperature == Temperature.HOT) {
+					this.myTemperature = Temperature.WARM;
+				} else if(this.myTemperature == Temperature.BLAZING) {
+					this.myTemperature = Temperature.HOT;
+				}
+				break;
+
+			case MEDIUM:
+				if(this.myTemperature == Temperature.COLD) {
+					this.myTemperature = Temperature.WARM;
+				} else if(this.myTemperature == Temperature.WARM) {
+					this.myTemperature = Temperature.HOT;
+				} else if(this.myTemperature == Temperature.BLAZING) {
+					this.myTemperature = Temperature.HOT;
+				}
+				break;
+
+			case HIGH:
+				if(this.myTemperature == Temperature.COLD) {
+					this.myTemperature = Temperature.WARM;
+				} else if(this.myTemperature == Temperature.WARM) {
+					this.myTemperature = Temperature.HOT;
+				} else if(this.myTemperature == Temperature.HOT) {
+					this.myTemperature = Temperature.BLAZING;
+				}
+				break;
+
+			}
+		}
 	}
 	
 	public void display() {
@@ -65,7 +110,7 @@ public class Burner {
 	}
 	
 	public final int TIME_DURATION = 2;
-	private int timer;
+	private int timer = 0;
 	private Setting mySetting;
 	private Temperature myTemperature;
 }
