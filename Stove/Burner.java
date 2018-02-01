@@ -1,5 +1,3 @@
-package src;
-
 /*
  * Names:
  * Calvin Mak
