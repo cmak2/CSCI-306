@@ -1,0 +1,20 @@
+
+
+Setup LevelsEngine
+
+
+Create 5 interacting pieces at least
+1 at a distance
+3 can be on the same player
+1 of each type of Interaction Result
+
+Two objcts that move
+Use at least 2 different moving algorithms
+1 should be random 
+
+At least 1 piece shold be drawable
+
+Must have 2+ levels
+UML for program
+
+README textfile about the game
