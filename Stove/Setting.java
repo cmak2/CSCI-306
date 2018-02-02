@@ -1,4 +1,4 @@
-package src;
+
 
 /*
  * Names:
@@ -21,6 +21,11 @@ public enum Setting {
 
 	public void setHeatSetting(String heatSetting) {
 		this.heatSetting = heatSetting;
+	}
+	
+	public void display() {
+		
+		System.out.print("Setting: [" + this.toString() + "] ");
 	}
 	
 	public String toString(){
