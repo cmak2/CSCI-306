@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 /**
  * Stove class. 
  *  
@@ -38,9 +39,18 @@ public class Stove {
 	 **** You must write the following method ****
 	 */
 	public void displayStove() {
+		boolean warningMessage = false;
 		for(Burner b : burners) {
+			
+			// display function encapsulated within burner.java
 			b.display();
+			
+			// if the message is not already set, then check if it needs to be set
+			if(!warningMessage)
+				warningMessage = b.setWarningMessage();
 		}
+		if(warningMessage)
+			System.out.println("WARNING: A BURNER IS EXTREMELY HOT");
 	}
 	
 	/**
