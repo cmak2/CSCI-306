@@ -38,7 +38,9 @@ public class Stove {
 	 **** You must write the following method ****
 	 */
 	public void displayStove() {
-
+		for(Burner b : burners) {
+			b.display();
+		}
 	}
 	
 	/**
