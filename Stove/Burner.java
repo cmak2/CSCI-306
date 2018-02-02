@@ -131,6 +131,14 @@ public class Burner {
 		System.out.println("State: " + getMyTemperature());
 	}
 	
+	// Function for setting warning message
+	
+	public boolean setWarningMessage() {
+		if(getMyTemperature() == Temperature.BLAZING)
+			return true;
+		
+		return false;
+	}
 	public enum Temperature { BLAZING, HOT, WARM, COLD };
 
 	public Temperature getMyTemperature() {
