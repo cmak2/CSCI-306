@@ -50,45 +50,78 @@ public class Burner {
 		timer++;
 		if (timer % TIME_DURATION == 0) {
 			switch(mySetting) {
+			
 			case OFF:
-				if(this.myTemperature == Temperature.WARM) {
-					this.myTemperature = Temperature.COLD;
-				} else if(this.myTemperature == Temperature.HOT) {
-					this.myTemperature = Temperature.WARM;
-				} else if(this.myTemperature == Temperature.BLAZING) {
-					this.myTemperature = Temperature.HOT;
+				switch(myTemperature){
+				case WARM:
+					myTemperature = Temperature.COLD;
+					break;
+
+				case HOT:
+					myTemperature = Temperature.WARM;
+					break;
+
+				case BLAZING:
+					myTemperature = Temperature.HOT;
+					break;
+				default:
+					break;
 				}
 				break;
+				
 			case LOW:
-				if(this.myTemperature == Temperature.COLD) {
-					this.myTemperature = Temperature.WARM;
-				} else if(this.myTemperature == Temperature.HOT) {
-					this.myTemperature = Temperature.WARM;
-				} else if(this.myTemperature == Temperature.BLAZING) {
-					this.myTemperature = Temperature.HOT;
+				switch(myTemperature){
+				case COLD:
+					myTemperature = Temperature.WARM;
+					break;
+					
+				case HOT:
+					myTemperature = Temperature.WARM;
+					break;
+					
+				case BLAZING:
+					myTemperature = Temperature.HOT;
+					break;
+				default:
+					break;
 				}
 				break;
-
+				
 			case MEDIUM:
-				if(this.myTemperature == Temperature.COLD) {
-					this.myTemperature = Temperature.WARM;
-				} else if(this.myTemperature == Temperature.WARM) {
-					this.myTemperature = Temperature.HOT;
-				} else if(this.myTemperature == Temperature.BLAZING) {
-					this.myTemperature = Temperature.HOT;
+				switch(myTemperature){
+				case COLD:
+					myTemperature = Temperature.WARM;
+					break;
+					
+				case WARM:
+					myTemperature = Temperature.HOT;
+					break;
+					
+				case BLAZING:
+					myTemperature = Temperature.HOT;
+					break;
+				default:
+					break;
 				}
 				break;
-
+				
 			case HIGH:
-				if(this.myTemperature == Temperature.COLD) {
-					this.myTemperature = Temperature.WARM;
-				} else if(this.myTemperature == Temperature.WARM) {
-					this.myTemperature = Temperature.HOT;
-				} else if(this.myTemperature == Temperature.HOT) {
-					this.myTemperature = Temperature.BLAZING;
+				switch(myTemperature){
+				case COLD:
+					myTemperature = Temperature.WARM;
+					break;
+					
+				case WARM:
+					myTemperature = Temperature.HOT;
+					break;
+					
+				case HOT:
+					myTemperature = Temperature.BLAZING;
+					break;
+				default:
+					break;
 				}
 				break;
-
 			}
 		}
 	}
