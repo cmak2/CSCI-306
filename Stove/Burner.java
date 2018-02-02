@@ -94,10 +94,11 @@ public class Burner {
 	}
 	
 	public void display() {
-		mySetting.toString();			//Will Fix later
+		mySetting.display();
+		System.out.println("State: " + getMyTemperature());
 	}
 	
-	public enum Temperature { BLAZING, HOT, WARM, COLD};
+	public enum Temperature { BLAZING, HOT, WARM, COLD };
 
 	public Temperature getMyTemperature() {
 		return myTemperature;
