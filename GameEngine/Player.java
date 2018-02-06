@@ -21,12 +21,13 @@ public class Player implements Drawable {
 	 * The number of points to complete a level. 
 	 * Player can earn 1 point at a time by interacting with a game piece.
 	 */
-	public final static int POINTS_TO_ADVANCE = 2;
+	public final static int POINTS_TO_ADVANCE = 3;
 
 	// Variables to track the player status
 	private int location;
 	private int levelPoints; 
 	private int damagePoints;
+	private boolean canAttack;
 	public enum PlayerStatus {DEAD, ADVANCING, OK; }
 	private PlayerStatus playerStatus;
 	
@@ -50,6 +51,7 @@ public class Player implements Drawable {
 		this.location = location;
 		damagePoints = 0; 
 		levelPoints = 0;
+		canAttack = false;
 	}
 	
 	/**
@@ -87,12 +89,46 @@ public class Player implements Drawable {
 	public void addPoint() {
 		levelPoints++;
 	}
+	/**
+	 * Deincrements player points in current level
+	 */
+	public void losePoint() {
+		levelPoints--;
+	}
 	
 	/**
 	 * Increments damage player has taken
 	 */
 	public void takeDamage() {
 		damagePoints++;
+	}
+	
+	/**
+	 * Heals one hit point from player
+	 */
+	
+	public void heal() {
+		if (damagePoints != 0) {
+			damagePoints--;
+		}
+	}
+	
+	/**
+	 * Checks if you can attack
+	 * @return
+	 */
+	
+	public boolean checkAttack() {
+		if (canAttack) { return true; }
+		return false;
+	}
+	
+	/**
+	 * If player obtains a sword or weapon, then they can attack.
+	 */
+	
+	public void attack() {
+		canAttack = true;
 	}
 	
 	/**
@@ -204,5 +240,16 @@ public class Player implements Drawable {
 	public int getLocation() {
 		return location;
 	}
+	
+	public void setLocation(int newLocation) {
+		if (newLocation >= GameEngine.BOARD_SIZE) {
+			newLocation = 0;
+		} else if (newLocation < 0) {
+			newLocation = GameEngine.BOARD_SIZE - 1;
+		}
+		location = newLocation;
+		return;
+	}
+	
 
 }
