@@ -1,6 +1,7 @@
 package levelPieces;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import gameEngine.Drawable;
 import gameEngine.GameEngine;
@@ -30,10 +31,9 @@ public class LevelEngine {
 		interactingPieces = new ArrayList<GamePiece>(GameEngine.BOARD_SIZE);
 		movingPieces = new ArrayList<Moveable>(GameEngine.BOARD_SIZE);
 		
-		for(int i = 0; i < MAX_HEAL_UNITS; i++) {
-			switch()
-		}
-		
+		Ball testPiece = new Ball();
+		interactingPieces.add(testPiece);
+		currentBoard[testPiece.getLocation()] = testPiece;2
 		
 		
 	}
@@ -74,5 +74,9 @@ public class LevelEngine {
 	private final int MAX_ADVANCE_UNITS = 1;
 	private final int MAX_GET_POINT_UNITS = 2;
 	
+	// Not a unit, but necessary; 
 	private final int MAX_DRAW_ONLY_UNITS = 3;
+	
+	//private Random rnd;
+	//private int num = rnd.nextInt(GameEngine.BOARD_SIZE - 1) + 1;
 }
