@@ -18,28 +18,44 @@ import gameEngine.Moveable;
 public class LevelEngine {
 
 	public void createLevel(int levelNum) {
-		// TODO Auto-generated method stub
+		/**
+		 *	create level grabs pieces and assigns their positions
+		 * 
+		 */
+		
+		//TODO: levelNum needs a function to differentiate the levels
+		//TODO: set up moveable pieces
+		currentBoard = new Drawable[MAX_BOARD_SIZE];
+		RandomPiece testPiece = new RandomPiece();
+		currentBoard[5] = testPiece;
 		
 	}
 
 	public Drawable[] getBoard() {
-		// TODO Auto-generated method stub
-		return null;
+		/**
+		 *  Returns board state and locations; i.e. setups draw function
+		 */
+		return currentBoard;
 	}
 
 	public ArrayList<Moveable> getMovingPieces() {
 		// TODO Auto-generated method stub
-		return null;
+		return movingPieces;
 	}
 
 	public ArrayList<GamePiece> getInteractingPieces() {
 		// TODO Auto-generated method stub
-		return null;
+		return interactingPieces;
 	}
 
 	public int getPlayerStartLoc() {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
+	
+	public final static int MAX_BOARD_SIZE = 10;
+	private Drawable[] currentBoard;
+	private ArrayList<Moveable> movingPieces;
+	private ArrayList<GamePiece> interactingPieces;
 
 }
