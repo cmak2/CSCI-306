@@ -28,7 +28,9 @@ public class LevelEngine {
 		currentBoard = new Drawable[MAX_BOARD_SIZE];
 		RandomPiece testPiece = new RandomPiece();
 		currentBoard[5] = testPiece;
-		
+		interactingPieces = new ArrayList<GamePiece>(MAX_BOARD_SIZE);
+		interactingPieces.add(testPiece);
+		movingPieces = new ArrayList<Moveable>(MAX_BOARD_SIZE);
 	}
 
 	public Drawable[] getBoard() {
