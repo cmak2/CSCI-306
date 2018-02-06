@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 import levelPieces.GamePiece;
 import levelPieces.LevelEngine;
-
+import java.util.*;
 /**
  * Framework for LevelGame. 
  * 
@@ -52,6 +52,7 @@ public class GameEngine {
 	// Player keeps track of player status and controls player movement/location
 	private Player player;
 
+	private Random rand = new Random(0);
 	/**
 	 * Constructor for GameEngine.   
 	 * It creates a new LevelEngine
@@ -126,25 +127,53 @@ public class GameEngine {
 				System.out.println("\nYou just won a prize!\n");
 			}
 			if (result == InteractionResult.HIT) {
-				player.takeDamage();
-				System.out.println("\nYou just took a hit!\n");
-				if (player.isDead()) {
-					System.out.println("Too many hits, you are dead");
-					// can only be killed once
-					break;
+				if (player.checkAttack() == false) {
+					player.takeDamage();
+					System.out.println("\nYou just took a hit!\n");
+					if (player.isDead()) {
+						System.out.println("Too many hits, you are dead");
+						// 	can only be killed once
+						break;
+					}
+				}
+				else {
+					//Remove the Piece
 				}
 			}
 			if (result == InteractionResult.KILL) {
-				player.killed();
-				System.out.println("\nSomething just killed you!\n");
-				// can only be killed once
-				break;
+				if (player.checkAttack() == false) {
+					player.killed();
+					System.out.println("\nSomething just killed you!\n");
+					// 	can only be killed once
+					break;
+				} else {
+					//Remove the Piece
+				}
 			}
 			if (result == InteractionResult.ADVANCE) {
 				player.wonAdvance();
 				System.out.println("\nGood news, you have won an advance!\n");
 				// can only advance once
 				break;
+			}
+			if (result == InteractionResult.LOSE_POINT) {
+				player.losePoint();
+			}
+			if (result == InteractionResult.TRIP) {
+				player.takeDamage();
+				int rNum = rand.nextInt(9) + 1;
+				if (rNum > 3) {
+					player.setLocation(player.getLocation() + 1);
+				} else {
+					player.setLocation(player.getLocation() - 1);
+				}
+				System.out.println("Woops, you tripped!");
+			}
+			if (result == InteractionResult.HEAL) {
+				player.heal();
+			}
+			if (result == InteractionResult.ATTACK) {
+				player.attack();
 			}
 		}			
 	}
