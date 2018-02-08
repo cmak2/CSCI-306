@@ -3,6 +3,11 @@ package gameEngine;
 import java.util.Scanner;
 
 /**
+ * @author Calvin Mak
+ * @author Jacob McBee
+ */
+
+/**
  * Keeps track of player status (location, hit points, etc.)
  * Manages player movement. 
  * 
@@ -143,6 +148,12 @@ public class Player implements Drawable {
 	 */
 	public void wonAdvance() {
 		playerStatus = PlayerStatus.ADVANCING;
+	}
+	
+	public void useAttack(boolean useAtt) {
+		if (useAtt) {
+			canAttack = false;
+		}
 	}
 	
 	/**
