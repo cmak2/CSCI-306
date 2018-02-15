@@ -1,11 +1,9 @@
-
 public class Student implements Comparable<Student>{
 	
-	Student() {
-		name = "";
-		score = 0;
+	Student(String name, int score) {
+		this.name = name;
+		this.score = score;
 	}
-	
 	
 	
 	@Override
@@ -13,12 +11,16 @@ public class Student implements Comparable<Student>{
 		return "[" + name + " " + score + "]";
 	}
 
-
+	
+	public String getName() {
+		return name;
+	}
 
 	@Override
-	public int compareTo(Student arg0) {
+	public int compareTo(Student compare) {
 		
-		return 0;
+		return this.name.compareTo(compare.getName());
+			
 	}
 
 	private String name;
