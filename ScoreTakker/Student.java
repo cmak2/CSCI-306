@@ -1,3 +1,4 @@
+
 public class Student implements Comparable<Student>{
 	
 	Student() {
@@ -6,6 +7,14 @@ public class Student implements Comparable<Student>{
 	}
 	
 	
+	
+	@Override
+	public String toString() {
+		return "[" name + " " + score + "]";
+	}
+
+
+
 	@Override
 	public int compareTo(Student arg0) {
 		
