@@ -1,7 +1,8 @@
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
 public class ScoreTrakker {
+	
 	
 	ScoreTrakker() {
 		studentList = new ArrayList<Student>();
@@ -32,12 +33,6 @@ public class ScoreTrakker {
 		printInOrder();
 	}
 	
-	
-	public static void main(String args[]) throws FileNotFoundException {
-		ScoreTrakker scoreTrakker = new ScoreTrakker();
-		scoreTrakker.processFiles("scores.txt");
-	}
-	
 	private ArrayList<Student> studentList;
-
+	private String[] files = {"scores.txt", "badscore.txt", "nofile.txt" };
 }
