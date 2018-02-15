@@ -1,7 +1,5 @@
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class ScoreTrakker {
 	
@@ -22,17 +20,24 @@ public class ScoreTrakker {
 		}
 	}
 	
-	public void printInOrder();
-	public void processFiles(String FileName) throws FileNotFoundException {
+	public void printInOrder() {
+		Collections.sort(Students);
+		for (Student newStudent : Students) {
+			System.out.println(newStudent);
+		}
+	}
+	
+	public void processFiles(String FileName) throws FileNotFoundException{
 		loadDataFromFile(FileName);
 		printInOrder();
 	}
+	
 	
 	public static void main(String args[]) {
 		ScoreTrakker scoreTrakker = new ScoreTrakker();
 		scoreTrakker.processFiles("scores.txt");
 	}
 	
-	private ArrayList<Student> studentList;
+	private ArrayList<Student> Students;
 
 }
