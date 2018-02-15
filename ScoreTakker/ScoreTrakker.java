@@ -33,9 +33,11 @@ public class ScoreTrakker {
 		}
 	}
 	
-	public void processFiles(String FileName) throws FileNotFoundException{
-		loadDataFromFile(FileName);
-		printInOrder();
+	public void processFiles() throws FileNotFoundException{
+		for (String FileName : files) {
+			loadDataFromFile(FileName);
+			printInOrder();
+		}
 	}
 	
 	private ArrayList<Student> studentList;
