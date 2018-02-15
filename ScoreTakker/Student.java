@@ -10,7 +10,7 @@ public class Student implements Comparable<Student>{
 	
 	@Override
 	public String toString() {
-		return "[" name + " " + score + "]";
+		return "[" + name + " " + score + "]";
 	}
 
 
