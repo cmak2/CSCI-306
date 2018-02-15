@@ -15,7 +15,12 @@ public class ScoreTrakker {
 		in.nextLine();
 		while(in.hasNext()) {
 			String name = in.next() + " " + in.next();
-			int score = in.nextInt();
+			int score = -1;
+			try {
+				score = in.nextInt();
+			} catch (NumberFormatException e) {
+				System.out.println("Error: " + e);
+			}
 			Student toAdd = new Student(name, score);
 			studentList.add(toAdd);
 		}
