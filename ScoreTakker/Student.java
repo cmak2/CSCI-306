@@ -1,3 +1,9 @@
+/** 
+ * 
+ * @author Jacob McBee
+ * @author Calvin Mak
+ */
+
 public class Student implements Comparable<Student>{
 	
 	Student(String name, int score) {
@@ -8,7 +14,7 @@ public class Student implements Comparable<Student>{
 	
 	@Override
 	public String toString() {
-		return "[" + name + " " + score + "]";
+		return name + " " + score;
 	}
 
 	
@@ -18,7 +24,9 @@ public class Student implements Comparable<Student>{
 
 	@Override
 	public int compareTo(Student compare) {
-		
+		/**
+		 * Compares students by name
+		 */
 		return this.name.compareTo(compare.getName());
 			
 	}
